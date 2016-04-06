@@ -3,11 +3,7 @@
 #
 #
 #
-
 import os
-
-
-
 
 def getPassword():
 
@@ -27,10 +23,10 @@ def getPassword():
 
 # mpk Read in User ID and Password
 
-userName = input('Please enter user ID: ')
-passWord = input('Please enter password: ')
+    userName = input('Please enter user ID: ')
+    passWord = input('Please enter password: ')
 
-print('' * 10 + '*' + '' * 49 + '*')
+    print('' * 10 + '*' + '' * 49 + '*')
 
 # mpk Clear the Screen and call the Game Menu function
 
@@ -72,11 +68,9 @@ def GameMenu(UserID):
 
 
 # Call the correct game based on the user's choice
-
-
-
 ####################################################################################
 ####################################################################################
+
 
 def Craps():
 # mpk Demonstrates random number generation
@@ -101,7 +95,7 @@ def Craps():
 
 
 # mpk Pause the screen
-
+    input(''*10 + 'Press Enter to continue...')
 
 # mpk Set up the screen Toss #2
 
@@ -122,7 +116,7 @@ def Craps():
     print(' '*7+'='*56+'=')
 
 # mpk Pause the screen
-
+    input(''*10 + 'Press Enter to continue...')
 
 # mpk Set up the screen Toss #3
 
@@ -143,7 +137,7 @@ def Craps():
     print(' '*7+'='*56+'=')
 
 # mpk Pause the screen
-
+    input(''*10 + 'Press Enter to continue...')
 
 ####################################################################################
 ####################################################################################
