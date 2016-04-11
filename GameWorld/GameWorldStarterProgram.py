@@ -21,24 +21,22 @@ def getPassword():
     print()
     print(' '*10+'*'+' '*49 +'*')
 
-# mpk Read in User ID and Password
-
+    #mpk Read in User ID and Password
     userName = input('Please enter user ID: ')
     passWord = input('Please enter password: ')
 
     print('' * 10 + '*' + '' * 49 + '*')
 
-# mpk Clear the Screen and call the Game Menu function
-
+    # mpk Clear the Screen and call the Game Menu function
+    gameMenu(userName)
 
 
 ####################################################################################
 ####################################################################################
 
-def GameMenu(UserID):
+def gameMenu(UserID):
 
-#mpk Clear the screen and print the Game Menu Screen
-
+    #mpk Clear the screen and print the Game Menu Screen
     print()
     print()
     print()
@@ -46,7 +44,7 @@ def GameMenu(UserID):
     print(' '*10+'='*50+'=')
     print(' '*10+'*'+' '*49 +'*')
 
-# mpk Calculate the margins for a message that changes
+    # mpk Calculate the margins for a message that changes
 
 
 
@@ -64,24 +62,24 @@ def GameMenu(UserID):
     print(' '*10+'='*50+'=')
     print()
 
-# mpk Read in the user's choice of game
+    # mpk Read in the user's choice of game
 
 
-# Call the correct game based on the user's choice
+    # Call the correct game based on the user's choice
 ####################################################################################
 ####################################################################################
 
 
 def Craps():
-# mpk Demonstrates random number generation
+    # mpk Demonstrates random number generation
 
-# mpk Set up the screen
-
-
-# mpk generate random numbers 1 - 6
+    # mpk Set up the screen
 
 
-# mpk Output Results
+    # mpk generate random numbers 1 - 6
+
+
+    # mpk Output Results
     print()
     print()
     print()
@@ -94,16 +92,16 @@ def Craps():
     print(' '*7+'='*56+'=')
 
 
-# mpk Pause the screen
+    # mpk Pause the screen
     input(''*10 + 'Press Enter to continue...')
 
-# mpk Set up the screen Toss #2
+    # mpk Set up the screen Toss #2
 
 
-# mpk generate random numbers 1 - 6
+    # mpk generate random numbers 1 - 6
 
 
-# mpk Output Results
+    # mpk Output Results
     print()
     print()
     print()
