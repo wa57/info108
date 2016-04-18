@@ -7,8 +7,11 @@
 import os
 import random
 import math
+import GameWorldCraps
 
 os.system('clear')
+
+totalScore = 0
 
 def getPassword():
 
@@ -73,85 +76,42 @@ def gameMenu(UserID):
     gameChoice = input('          Please choose a game: ')
 
     # Call the correct game based on the user's choice
-    Craps()
+    getGame(gameChoice)
 ####################################################################################
 ####################################################################################
 
+def getGame(gameChoice):
+    screenPause = ' '*12+'Press Enter to continue...'
+    global totalScore
+    if(gameChoice == '1'):
+        crapsScore = GameWorldCraps.Craps()
+        os.system('clear')
+        print()
+        if crapsScore > 0:
+            print(' '*14, 'Congratulations! Your Craps score is', str(crapsScore) + '.')
+        else:
+            print(' '*20, 'Your Craps score is', str(crapsScore) + '.')
+        totalScore = totalScore + crapsScore
+        print(' '*12, 'Your total score for this game session is', str(totalScore) + '.')
+        input(screenPause)
+    elif gameChoice == '2':
+        print()
+        print(' '*11, 'Coming soon...Guess The Number!')
+        input(screenPause)
+    elif gameChoice == '3':
+        print()
+        print(' '*11, 'Game under construction. Please try again later.')
+        input(screenPause)
+    elif gameChoice == '4':
+        print()
+        print(' '*11, 'Game under construction. Please try again later.')
+        input(screenPause)
+    else:
+        print()
+        print(' '*11, 'You have entered an invalid menu choice.')
+        gameChoice = input('             Please choose a game between 1 and 4')
+        getGame(gameChoice)
 
-def Craps():
-    # mpk Demonstrates random number generation
-    """
-    blockcomments
-    """
-    # mpk Set up the screen
-
-
-    # mpk generate random numbers 1 - 6
-    die1 = random.randint(1, 6)
-    die2 = random.randint(1, 6)
-    total = die1 + die2
-
-    # mpk Output Results
-    print()
-    print()
-    print()
-    print(' '*7+'='*56+'=')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
-    #print()
-    print(' '*7+'='*56+'=')
-
-
-    # mpk Pause the screen
-    input(''*10 + 'Press Enter to continue...')
-
-    # mpk Set up the screen Toss #2
-    die1 = random.randint(1, 6)
-    die2 = random.randint(1, 6)
-    total = die1 + die2
-
-    # mpk generate random numbers 1 - 6
-
-
-    # mpk Output Results
-    print()
-    print()
-    print()
-    print(' '*7+'='*56+'=')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
-    #print()
-    print(' '*7+'='*56+'=')
-
-    # mpk Pause the screen
-    input(''*10 + 'Press Enter to continue...')
-
-    # mpk Set up the screen Toss #3
-    die1 = random.randint(1, 6)
-    die2 = random.randint(1, 6)
-    total = die1 + die2
-
-    # mpk generate random numbers 1 - 6
-
-
-    # mpk Output Results
-    print()
-    print()
-    print()
-    print(' '*7+'='*56+'=')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
-    #print()
-    print(' '*7+'='*56+'=')
-
-    # mpk Pause the screen
-    input(''*10 + 'Press Enter to continue...')
 ####################################################################################
 ####################################################################################
 
