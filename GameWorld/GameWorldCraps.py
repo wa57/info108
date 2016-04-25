@@ -21,10 +21,8 @@ def Craps():
     print()
     print(' '*7+'='*56+'=')
     print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
+    printRoll(total, die1, die2)
     print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
-    #print()
     print(' '*7+'='*56+'=')
 
 
@@ -35,6 +33,8 @@ def Craps():
     die1 = random.randint(1, 6)
     die2 = random.randint(1, 6)
     total = die1 + die2
+    if total == 7 or total == 11:
+        crapsTotal = crapsTotal + 1
 
     # mpk generate random numbers 1 - 6
 
@@ -45,10 +45,9 @@ def Craps():
     print()
     print(' '*7+'='*56+'=')
     print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
+    printRoll(total, die1, die2)
     print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
-    #print()
+
     print(' '*7+'='*56+'=')
 
     # mpk Pause the screen
@@ -58,6 +57,8 @@ def Craps():
     die1 = random.randint(1, 6)
     die2 = random.randint(1, 6)
     total = die1 + die2
+    if total == 7 or total == 11:
+        crapsTotal = crapsTotal + 1
 
     # mpk generate random numbers 1 - 6
 
@@ -68,7 +69,7 @@ def Craps():
     print()
     print(' '*7+'='*56+'=')
     print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
+    printRoll(total, die1, die2)
     print(' '*7+'|*   *|'+' '*41+'  |*   *|')
     #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
     #print()
@@ -77,3 +78,9 @@ def Craps():
     # mpk Pause the screen
     input(''*10 + 'Press Enter to continue...')
     return crapsTotal
+
+def printRoll(total, die1, die2):
+    if total > 9:
+            print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +' |  *  |')
+    else:
+            print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')

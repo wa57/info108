@@ -34,6 +34,15 @@ def getPassword():
 
     print('' * 10 + '*' + '' * 49 + '*')
 
+    if userName == '' or passWord == '':
+        print('             Please enter a valid userName and passWord.')
+        username = input('             Please enter user ID: ')
+        passWord = input('             Please enter password: ')
+
+    if passWord != 'happy':
+        print('            Please enter a valid Password.')
+        passWord = input('            Please enter Password: ')
+
     # mpk Clear the Screen and call the Game Menu function
     os.system('clear')
     gameMenu(userName)

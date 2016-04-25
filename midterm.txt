@@ -1,0 +1,74 @@
+midterms are easy to deal with
+
+exam review
+
+pay attention in class
+
+do the reading (lol)
+
+Multiple choice (below)
+Matching comes directly out of the glossary of the book, learn the glossary at the end of chapter 1 and 2
+
+---Exam Review---
+
+Chapter 1 & 2
+1. According to Downey, the single most important skill for a computer scientist is:
+    b. Problem Solving
+
+2. The file in which you store Python code is called a(n):
+    b. script
+
+3. The expression type(100.25) will produce which output?
+    a. <class 'float'>
+
+4. Which is the legal variable name?
+    b. Dimension10
+
+    cannot start variable name with a numeric, pound sign not permitted
+    https://en.wikibooks.org/wiki/Python_Beginner_to_Expert/Native_Types
+
+5. Which is the illegal variable name?
+    a. global
+
+    global is a reserved word in python
+
+6. Which of these is not an expression?
+    d. None of the above
+
+7. Which is the correct order of operations?
+    c. PEMDAS
+
+8. Which of the following is a legal command?
+    d. print('A' + 'B')
+
+9. By convention, Python scripts have names that end with:
+    c. py
+
+10. In Python 3.x, what is the result of executing the following code assuming the user enters 3?
+    num = int(input('Enter an integer value: '))
+    print(num // 2)
+
+11. After the execution of the following statement, the variable price will reference the value?
+
+
+12. T There are three distinct categories of programming errors: runtime, syntactical, semantic
+
+13. T Ultimately, computers can only run programs that are in a low-level language.
+
+14. F High-level programs are computer specific.
+
+15. T Almost all programs are created in high-level languages these days.
+
+16. T An interpreter reads the program and translates it completely before the program starts running.
+
+17. T The translated program is called the object code or the executable.
+
+18. F A compiler reads a high-level program and executes it a little at time,
+    alternately reading lines and performing computations.
+
+19. F The statement print(1,000,000) will produce a syntax error.
+    (will print 1 0 0, print statement adds space on comma and truncates 0s)
+
+20. F Operators with the same precedence(except exponentiation) are evaluated from right to left
+
+21. 

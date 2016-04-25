@@ -4,11 +4,11 @@
 #Project Description: Program to award points based on the amount of books purchased in a month
 
 def main():
-    #Takes user input and converts to float
+    #WA - Takes user input and converts to float
     booksPurchased = float(input('Number of books purchased this month: '))
     print()
 
-    #Checks if input is greater than or equal to 0
+    #WA - Checks if input is greater than or equal to 0
     if booksPurchased >= 0:
         simpleIfFunction(booksPurchased)
         nestedIfFunction(booksPurchased)
@@ -19,9 +19,9 @@ def main():
     print()
     input('Press Enter to continue...')
 
-#Checks value of books purchased to determine the number of points awarded using standard if statements
+#WA - Checks value of books purchased to determine the number of points awarded using standard if statements
 def simpleIfFunction(booksPurchased):
-    #Default number of points awarded
+    #WA - Default number of points awarded
     pointsAwarded = 0
 
     if booksPurchased == 1:
@@ -36,12 +36,12 @@ def simpleIfFunction(booksPurchased):
     if booksPurchased > 3:
         pointsAwarded = 60
 
-    #Prints number of points awarded to the console
+    #WA - Prints number of points awarded to the console
     print('The simpleIfFunction awarded', pointsAwarded, 'points.')
 
-#Uses nested conditionals to determine number of points awarded
+#WA - Uses nested conditionals to determine number of points awarded
 def nestedIfFunction(booksPurchased):
-    #Default number of points awarded
+    #WA - Default number of points awarded
     pointsAwarded = 0
 
     if booksPurchased == 1:
@@ -56,12 +56,12 @@ def nestedIfFunction(booksPurchased):
                 if booksPurchased > 3:
                     pointsAwarded = 60
 
-    #Prints number of points awarded to the console
+    #WA - Prints number of points awarded to the console
     print('The nestedIfFunction awarded', pointsAwarded, 'points.')
 
-#Uses elif to determine number of points awarded
+#WA - Uses elif to determine number of points awarded
 def elifFunction(booksPurchased):
-    #Default number of points awarded
+    #WA - Default number of points awarded
     pointsAwarded = 0
 
     if booksPurchased == 1:
