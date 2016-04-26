@@ -15,19 +15,8 @@ def Craps():
     if total == 7 or total == 11:
         crapsTotal = crapsTotal + 1
 
-    # mpk Output Results
-    print()
-    print()
-    print()
-    print(' '*7+'='*56+'=')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
+    # mpk Output Results and Pauses the screen
     printRoll(total, die1, die2)
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    print(' '*7+'='*56+'=')
-
-
-    # mpk Pause the screen
-    input(''*10 + 'Press Enter to continue...')
 
     # mpk Set up the screen Toss #2
     die1 = random.randint(1, 6)
@@ -40,18 +29,9 @@ def Craps():
 
 
     # mpk Output Results
-    print()
-    print()
-    print()
-    print(' '*7+'='*56+'=')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
     printRoll(total, die1, die2)
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-
-    print(' '*7+'='*56+'=')
 
     # mpk Pause the screen
-    input(''*10 + 'Press Enter to continue...')
 
     # mpk Set up the screen Toss #3
     die1 = random.randint(1, 6)
@@ -64,23 +44,25 @@ def Craps():
 
 
     # mpk Output Results
-    print()
-    print()
-    print()
-    print(' '*7+'='*56+'=')
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
     printRoll(total, die1, die2)
-    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
-    #print(' '*7+' -----  You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!'+' -----')
-    #print()
-    print(' '*7+'='*56+'=')
 
-    # mpk Pause the screen
-    input(''*10 + 'Press Enter to continue...')
     return crapsTotal
 
 def printRoll(total, die1, die2):
+    print()
+    print()
+    print()
+    print(' '*7+'='*56+'=')
+    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
     if total > 9:
             print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +' |  *  |')
     else:
             print(' '*7 + '|  *  | You rolled a', die1, 'and a', die2, 'for a total of', str(total)+ '!' +'  |  *  |')
+    print(' '*7+'|*   *|'+' '*41+'  |*   *|')
+    print(' '*7+'='*56+'=')
+
+    screenPause()
+
+
+def screenPause():
+    input(''*10 + 'Press Enter to continue...')

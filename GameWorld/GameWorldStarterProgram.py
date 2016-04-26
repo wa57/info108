@@ -9,7 +9,7 @@ import random
 import math
 import GameWorldCraps
 
-os.system('clear')
+os.system('cls||clear')
 
 totalScore = 0
 
@@ -34,12 +34,12 @@ def getPassword():
 
     print('' * 10 + '*' + '' * 49 + '*')
 
-    if userName == '' or passWord == '':
+    while userName == '' or passWord == '':
         print('             Please enter a valid userName and passWord.')
         username = input('             Please enter user ID: ')
         passWord = input('             Please enter password: ')
 
-    if passWord != 'happy':
+    while passWord != 'h':
         print('            Please enter a valid Password.')
         passWord = input('            Please enter Password: ')
 
@@ -91,8 +91,24 @@ def gameMenu(UserID):
 
 def getGame(gameChoice):
     screenPause = ' '*12+'Press Enter to continue...'
-    global totalScore
-    if(gameChoice == '1'):
+
+    while gameChoice != '1' and gameChoice != '2':
+        if gameChoice == '3':
+            print()
+            print(' '*11, 'Game under construction. Please try again later.')
+            input(screenPause)
+        elif gameChoice == '4':
+            print()
+            print(' '*11, 'Game under construction. Please try again later.')
+            input(screenPause)
+        else:
+            print()
+            print(' '*11, 'You have entered an invalid menu choice.')
+
+        gameChoice = input('             Please choose a game between 1 and 4')
+
+    if gameChoice == '1':
+        global totalScore
         crapsScore = GameWorldCraps.Craps()
         os.system('clear')
         print()
@@ -107,19 +123,9 @@ def getGame(gameChoice):
         print()
         print(' '*11, 'Coming soon...Guess The Number!')
         input(screenPause)
-    elif gameChoice == '3':
-        print()
-        print(' '*11, 'Game under construction. Please try again later.')
-        input(screenPause)
-    elif gameChoice == '4':
-        print()
-        print(' '*11, 'Game under construction. Please try again later.')
-        input(screenPause)
-    else:
-        print()
-        print(' '*11, 'You have entered an invalid menu choice.')
-        gameChoice = input('             Please choose a game between 1 and 4')
-        getGame(gameChoice)
+
+    getGame(gameChoice)
+
 
 ####################################################################################
 ####################################################################################
