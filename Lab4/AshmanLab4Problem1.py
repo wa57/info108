@@ -35,7 +35,7 @@ def calculateLoanPayments(loanAmount, loanYears):
         totalPayment = monthlyPayment * loanYears * 12
         #WA - Uses replacement fields to set a maximum column width and left align data set rows.
         #     Will also truncate result to 2 decimal places
-        print('{0:<8} {1:<18} {2:<16}'.format(str(rate) + '%', '%.2f' % monthlyPayment, '%.2f' % totalPayment))
+        print('{0:<8} {1:<18} {2:<16}'.format(str(rate) + '%', '$%.2f' % monthlyPayment, '$%.2f' % totalPayment))
 
 #WA - Accepts a message and performs check to verify input is not a negative number,
 #     uses a while loop to prompt user until valid input is given
