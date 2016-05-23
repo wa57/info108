@@ -8,6 +8,6 @@ repeat = 'y'
 while repeat == 'y':
     number = float(input('\nEnter a number: '))
     number1 = float(input('\nEnter a second number: '))
-    print()
-    print(number + number1)
+    print('\n',number + number1)
     repeat = input('\nRepeat? (y/n) ')
+    

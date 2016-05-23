@@ -101,7 +101,7 @@ def getGame(gameChoice):
             print(' '*11, 'Game under construction. Please try again later.')
             input(screenPause)
         elif gameChoice == '0':
-            break
+            quit()
         else:
             print()
             print(' '*11, 'You have entered an invalid menu choice.')
@@ -127,7 +127,7 @@ def getGame(gameChoice):
         input(screenPause)
 
     #getGame(gameChoice)
-
+    gameMenu('test')
 
 ####################################################################################
 ####################################################################################
