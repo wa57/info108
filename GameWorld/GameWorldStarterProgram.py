@@ -13,6 +13,7 @@ import GameWorldGuessMyNumber
 os.system('cls||clear')
 
 totalScore = 0
+gameChoice = ""
 
 def getPassword():
 
@@ -45,12 +46,16 @@ def getPassword():
         passWord = input('            Please enter Password: ')
 
     # mpk Clear the Screen and call the Game Menu function
-    os.system('clear')
-    gameMenu(userName)
+    while gameChoice != "0":
+        os.system('cls||clear')
+        gameMenu(userName)
+
 ####################################################################################
 ####################################################################################
 
 def gameMenu(UserID):
+    #while not gameChoice in ['0', '1', '2', '5']:
+        #print('test')
 
     #mpk Clear the screen and print the Game Menu Screen
     os.system('clear')
@@ -80,6 +85,7 @@ def gameMenu(UserID):
     print(' '*10+'='*50+'=')
     print()
 
+    global gameChoice
     # mpk Read in the user's choice of game
     gameChoice = input('          Please choose a game: ')
 
