@@ -8,9 +8,8 @@ import os
 import random
 import math
 import GameWorldCraps
+import tictactoe
 import GameWorldGuessMyNumber
-
-os.system('cls||clear')
 
 totalScore = 0
 gameChoice = ""
@@ -47,7 +46,7 @@ def getPassword():
 
     # mpk Clear the Screen and call the Game Menu function
     while gameChoice != "0":
-        os.system('cls||clear')
+        cls()
         gameMenu(userName)
 
 ####################################################################################
@@ -58,7 +57,7 @@ def gameMenu(UserID):
         #print('test')
 
     #mpk Clear the screen and print the Game Menu Screen
-    os.system('clear')
+    cls()
     print()
     print()
     print()
@@ -77,7 +76,8 @@ def gameMenu(UserID):
     print(' '*10+'*'+'   1. Craps'+' '*38 +'*')
     print(' '*10+'*'+'   2. Guess The Number'+' '*27 +'*')
     print(' '*10+'*'+'   3. Word Jumble'+' '*32 +'*')
-    print(' '*10+'*'+'   4. Blastoff'+' '*36 +'*')
+    print(' '*10+'*'+'   4. Blastoff'+' '*35 +'*')
+    print(' '*10+'*'+'   5. Tic-Tac-Toe'+' '*32 +'*')
     print(' '*10+'*'+' '*49 +'*')
     print(' '*10+'*'+' '*49 +'*')
 
@@ -97,7 +97,7 @@ def gameMenu(UserID):
 def getGame(gameChoice):
     screenPause = ' '*12+'Press Enter to continue...'
 
-    while gameChoice != '1' and gameChoice != '2':
+    while gameChoice != '1' and gameChoice != '2' and gameChoice != '5':
         if gameChoice == '3':
             print()
             print(' '*11, 'Game under construction. Please try again later.')
@@ -118,7 +118,7 @@ def getGame(gameChoice):
     if gameChoice == '1':
         global totalScore
         crapsScore = GameWorldCraps.Craps()
-        os.system('clear')
+        cls()
         print()
         if crapsScore > 0:
             print(' '*14, 'Congratulations! Your Craps score is', str(crapsScore) + '.')
@@ -131,6 +131,9 @@ def getGame(gameChoice):
         guessMyNumberScore = GameWorldGuessMyNumber.guessMyNumber()
         totalScore = totalScore + guessMyNumberScore
         input(screenPause)
+    elif gameChoice == '5':
+        global totalScore
+        totalScore += tictactoe.newGame()
 
     #getGame(gameChoice)
     gameMenu('test')
@@ -140,8 +143,12 @@ def getGame(gameChoice):
 
 # mpk Declare the Main() function
 def Main():
+    cls()
     getPassword()
     print()
+
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 
 # mpk Call the Main() function
