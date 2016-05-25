@@ -1,6 +1,6 @@
 import os
 
-#EB - Initializes the totalScore global to keep track of score across multiple games
+# eb initializing the totalScore global to keep GameWorld score
 totalScore = 0
 
 #WA - Returns the game board as a dictionary with each attribute holding an array to form the grid
@@ -11,7 +11,7 @@ def initBoard():
         'c': [' ',' ',' ']
     }
 
-#EB - Prints the tic-tac-toe board with formatting to appear as a traditional tic-tac-toe board
+# eb prints the tic-tac-toe board
 def printBoard(board):
     global totalScore
     cls()
@@ -25,7 +25,8 @@ def printBoard(board):
         if key != 'c':
             print(' '*4+'-'*22)
 
-#EB - Prints a line of evenly spaced bars to form the game board's containing cells
+
+# eb prints a line of evenly spaced bars to form the game board
 def printColumnLines():
     print(' '*10 + '|' + ' ' * 8 + '|')
 
@@ -41,13 +42,11 @@ def moveMapper(move, board, player):
         board[row][column] = symbol
     return board
 
-#EB - Checks each victory condition (rows, columns, diagonals) to determine if there is a winner
-def checkVictoryCondition(board):
-    if checkDiagonals(board):
+# eb checks each victory condition (3 up, across or diagonal) to determine if there's a winner
+def checkBoardCondition(board):
+    if checkVictories(board):
         return True
-    elif checkRows(board):
-        return True
-    elif checkColumns(board):
+    elif isBoardFull(board):
         return True
     return False
 
@@ -80,7 +79,14 @@ def checkColumns(board):
             break
     return winningColFound
 
-#def colToRow(board):
+# eb checks if the board is full
+def isBoardFull(board):
+    # eb if all 9 spaces on board have a symbol, returns true and prints that the board is full
+    tieFound = True
+    for row in sorted(board.items()):
+        if ' ' in row[1]:
+            tieFound = False
+    return tieFound
 
 #WA - Converts to set and checks the length, sets cannot have duplicate items.
 #     Since we are checking for a single character, the set should only have a length of 1
@@ -89,12 +95,17 @@ def checkIfUniformList(myList):
         return len(set(myList)) <= 1
     return False
 
+def checkVictories(board):
+    if checkDiagonals(board) or checkRows(board) or checkColumns(board):
+        return True
+    return False
+
 #WA - The main game loop. The game will enter into the while loop and will only break when a victory condition has been discovered
 def gameLoop(board):
     #WA - Defaults the player's turn to 1. This acts as a counter
     playerTurn = 1
     #WA - Checks each row, column, and diagonal for a possible victory condition
-    while not checkVictoryCondition(board):
+    while not checkBoardCondition(board):
         printBoard(board)
         #WA - Validates and returns user input, this makes sure the player's move if within the grid and is valid
         playerMove = getPlayerMove(playerTurn, board)
@@ -106,7 +117,7 @@ def gameLoop(board):
         else:
             playerTurn += 1
     printBoard(board)
-    determineWinner(playerTurn)
+    determineWinner(playerTurn, board)
 
 
 def getPlayerMove(playerTurn, board):
@@ -127,7 +138,7 @@ def validatePlayerMove(playerMove, board):
         print('\nInvalid Input. Make sure you entered your move location accurately.')
     return False
 
-#EB - Asks the user if they want to play again. If their input is 'y' True is returned
+# eb asks the user if they want to play again, if their input is 'y' true is returned
 def replay():
     replay = input('Play again? (y/n): ')
     if replay.lower() == 'y':
@@ -136,16 +147,21 @@ def replay():
         return False
 
 #WA - Determines who won and adds the score to the game world total
-def determineWinner(playerTurn):
+def determineWinner(playerTurn, board):
     global totalScore
-    if playerTurn == 1:
-        player = playerTurn + 1
+    # eb makes sure the game did not end in a tie before declaring a winner
+    if isBoardFull(board) and not checkVictories(board):
+        print('\nDraw!\n')
     else:
-        player = playerTurn - 1
-        totalScore += 1
-    print('\nPlayer', player, 'wins!\n')
+        if playerTurn == 1:
+            player = playerTurn + 1
+        else:
+            player = playerTurn - 1
+            totalScore += 1
+        print('\nPlayer', player, 'wins!\n')
 
-#EB - Starts a new game, creates a new game board and enters the main game loop
+
+# eb starts a new game, creates a new game board and enters the main game loop
 def newGame():
     board = initBoard()
     gameLoop(board)
