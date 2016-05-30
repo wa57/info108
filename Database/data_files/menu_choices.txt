@@ -1,0 +1,1 @@
+['Add a Class', 'Add a Student', 'Delete a Class Record', 'Delete a Student Record', 'Class Report', 'Student Report', 'Student Report by Class', 'Exit']

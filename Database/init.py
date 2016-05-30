@@ -1,120 +1,62 @@
-#submission: save "main" (so init.py) python file to a .txt file and submit to Final Individual Assignment Text File (also applies to team assignment)
-#multiple files: zip them and submit in Zip File link
-#need to submit gameworld as well, has separate submission link
+#Project Name: Individual Assignment
+#Date: 6/1/16
+#Programmer Names: Will Ashman
+#Project Description: Relational Database using only lists
+
 
 import os
 import utility
 import student_table
+import class_table
 
-def getUniqueId(table):
-    print(len(studentsTable))
-
-"""def printTable(results):
-    for row in results:
-        print(row[0], row[1], row[2])
-"""
-
-def printTable(table):
-    print(getAllColumns())
-    print(table)
-
+#WA - Routes the user's choice to the appropriate function
 def userChoiceHandler(userChoice):
+    utility.cls()
     if(userChoice == '1'):
-        student_id = input("Student ID: ")
-        student = student_table.getStudentById(student_id)
-        print(student)
-    if(userChoice == '2'):
-        #newStudentId = getUniqueStudentId() #will
-        student_table.getNewStudentInfo()
-        #print(columns[col])
-        """
-        newStudent = [
-            5,
-            input('New Student First Name: '),
-            input('New Student Last Name: '),
-            input('New Student ')
-        ]
-        first_name =
-        last_name = input('New Student Last Name: ')
-        """
-    if(userChoice == '3'):
-        print('hi')
-
-        #data = [line.strip() for line in open("db/students_db.txt", 'r')]
-        #print(data)
-
-
-        #for tuple in test:
-            #print(list(test))
-        #print(test)
-
-        #file.read()
-
-        #with open(outfile, 'wb') as f:
-            #csv.writer(f, delimiter=' ').writerows(mat)
-
-    if(userChoice == '8'):
+        class_table.addNewClass()
+    elif userChoice == '2':
+        student_table.addNewStudent()
+    elif userChoice == '3':
+        class_table.deleteClassRecord()
+    elif userChoice == '4':
+        student_table.deleteStudentRecord()
+    elif userChoice == '5':
+        class_table.classReport()
+    elif userChoice == '6':
+        student_table.studentReport()
+    elif userChoice == '7':
+        class_table.studentReportByClass()
+    elif(userChoice == '8'):
         quit()
 
-
+#WA - Main function that controls displaying the menu and watching for user selections
 def displayMenu():
+    utility.cls()
     printMenuHeading()
     printChoices()
-
-    userChoice = input('Make a selection: ')
+    userChoice = input('\nMake a selection: ')
     userChoiceHandler(userChoice)
     repeat()
-
     input('Press Enter to continue...')
 
 def printMenuHeading():
     print('\nDatabase Operations')
-    print('-'*19)
+    print('-'*30)
 
+#WA - Reads list of choices from menu_choices.txt file and displays them
 def printChoices():
-    choices = [
-        'Add a Class',
-        'Add a Student',
-        'Delete a Class Record',
-        'Delete a Student Record',
-        'Class Report',
-        'Student Report',
-        'Student Report by Class',
-        'Exit'
-    ]
-
+    choices = utility.readRecordsFromFile('data_files/menu_choices.txt')
     counter = 1
-    for choice in choices:
+    for choice in choices[0]:
         print(str(counter) + '.', choice)
         counter += 1
 
+#WA - Determines if the user wants to make a new selection
 def repeat():
-    repeat = input('Make another selection? (y/n): ')
-    if(repeat == 'y'):
+    repeat = input('\nMake another selection? (y/n): ')
+    if repeat == 'y':
         displayMenu()
+    else:
+        quit()
 
-def main():
-    os.system('clear||cls')
-    #printTable(getAllStudents(table))
-    print(student_table.studentsTable)
-    displayMenu()
-
-main()
-
-
-#print(getStudentById(2))
-#print(getStudentsByFirstName('will'))
-#0th element of array is always the column labels row
-#for row in table:
-    #print(row[0], row[1], row[2])
-#WA - Uses replacement fields to set a maximum column width and left align column headers
-
-
-#def getAllUsers():
-    #print('\n{0:<8} {1:<18} {2:<16}'.format('id', 'first_name', 'last_name'))
-    #print('-'*46)
-
-#getAllUsers()
-#WA - Uses replacement fields to set a maximum column width and left align data set rows.
-#     Will also truncate result to 2 decimal places
-#ROW print('{0:<8} {1:<18} {2:<16}'.format(str(rate) + '%', '$%.2f' % monthlyPayment, '$%.2f' % totalPayment))
+displayMenu()
