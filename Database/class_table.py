@@ -37,6 +37,7 @@ def printStudentReportByClass(studentsAndClasses):
     for row in studentsAndClasses:
         print('\n{0:<10} {1:<20} {2:<20} {3:<15}'.format(row[0], row[1], row[2], row[3]))
 
+#WA - Gets user input and adds the new list to the table
 def addNewClass():
     newClass = []
     for column in getAllColumns():
@@ -45,6 +46,7 @@ def addNewClass():
     classTable.append(newClass)
     saveClassTable()
 
+#WA - Gets the class and deletes the record from the list
 def deleteClassRecord():
     class_id = input('Class Id: ')
     classToDelete = getClassById(class_id)
@@ -58,6 +60,7 @@ def deleteClassRecord():
         print('Class', classToDelete[colToIndex('class_id')],'successfully deleted')
         saveClassTable()
 
+#WA - Prints a single class record
 def printClass(classInfo):
     columns = getAllColumns()
     print('-'*30)
@@ -65,6 +68,7 @@ def printClass(classInfo):
         print(utility.formatColName(columns[idx]) + ':', item)
     print('-'*30)
 
+#WA - Retrieves a class record from the table based on its class_id
 def getClassById(class_id):
     match = []
     for row in classTable:
@@ -72,11 +76,13 @@ def getClassById(class_id):
             match = row
     return match
 
+#WA - Uses replacement fields to set a maximum column width and left align column headers
 def classReport():
     print('\n{0:<10} {1:<15} {2:<25} {3:<25}'.format('Class Id', 'Class Name', 'Instructor First Name', 'Instructor Last Name'))
     print('-'*74)
     for course in classTable:
         print('\n{0:<10} {1:<15} {2:<25} {3:<25}'.format(course[0], course[1], course[2], course[3]))
 
+#WA - Writes the classTable list to the class_db.txt file
 def saveClassTable():
     utility.writeRecordsToFile('data_files/class_db.txt', classTable)

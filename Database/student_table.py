@@ -1,13 +1,17 @@
 import utility
 
+#WA - Reads in student records from student_db.txt and stores it in global studentsTable variable
 studentsTable = utility.readRecordsFromFile('data_files/students_db.txt')
 
+#WA - Returns a list of the table's columns
 def getAllColumns():
     return ['student_id', 'class_id', 'first_name', 'last_name', 'grade']
 
+#WA - Converts a column string to the corresponding index located in the table's columns list
 def colToIndex(column):
     return getAllColumns().index(column)
 
+#WA - Gets user input and adds the new list to the table
 def addNewStudent():
     newStudent = []
     for column in getAllColumns():
@@ -16,6 +20,7 @@ def addNewStudent():
     studentsTable.append(newStudent)
     saveStudentsTable()
 
+#WA - Gets the student and deletes the record from the list
 def deleteStudentRecord():
     student_id = input('Student Id: ')
     class_id = input('Class Id: ')
@@ -30,6 +35,7 @@ def deleteStudentRecord():
         print('\nStudent', student[colToIndex('student_id')],'successfully deleted')
         saveStudentsTable()
 
+#WA - Prints a single student record
 def printStudent(student):
     columns = getAllColumns()
     print('-'*30)
@@ -37,6 +43,7 @@ def printStudent(student):
         print(utility.formatColName(columns[idx]) + ':', item)
     print('-'*30)
 
+#WA - Uses replacement fields to set a maximum column width and left align column headers
 def studentReport():
     print('\n{0:<15} {1:<15} {2:<15} {3:<15} {4:<15}'.format('Student Id', 'Class Id', 'First Name', 'Last Name', 'Grade'))
     print('-'*70 + '\n')
@@ -49,6 +56,7 @@ def studentReport():
             student[colToIndex('grade')])
         )
 
+#WA - Writes the classTable list to the class_db.txt file
 def saveStudentsTable():
     utility.writeRecordsToFile('data_files/students_db.txt', studentsTable)
 
@@ -60,18 +68,17 @@ def getStudentsByClassId(class_id):
             matches.append(student)
     return matches
 
+#WA - Retrieves a student record from the table based on its student_id
 def getStudentById(student_id):
     id = utility.safelyConvertToInt(student_id)
     for row in studentsTable:
         if(row[colToIndex('student_id')] == id):
             return row
 
+#WA - Retrieves a matched student record based on a student_id and class_id
 def getStudentByClassAndId(student_id, class_id):
     matched_student = []
     for row in studentsTable:
         if(row[colToIndex('student_id')] == student_id and row[colToIndex('class_id')] == class_id):
             matched_student = row
     return matched_student
-
-def deleteStudent():
-    print('delete student')

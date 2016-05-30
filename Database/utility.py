@@ -8,16 +8,7 @@ def safelyConvertToInt(string):
         print('error: alphanumeric')
         pass
 
-def openFile(filepath):
-    try:
-        file = open(filepath)
-        for line in file:
-            print(line)
-        fin.close()
-    except:
-        print('Something went wrong')
-        print('please check dir and filename')
-
+#WA - Accepts a filepath string and list as arguments and writes the records to the file given
 def writeRecordsToFile(filepath, records):
     try:
         file = open(filepath, 'w')
@@ -27,6 +18,10 @@ def writeRecordsToFile(filepath, records):
     except:
         print('Something went wrong saving the records.')
 
+#WA - Accepts a filepath string and reads the specified file's contents
+#     The standard format is a list of lists with each nested list being an individual student or class record
+#     The read will return a string of 'lists', we use eval to convert them into actual list objects
+#     If there is only one record in the .txt file it will iterate through the list incorrectly, so we have to make sure it is nested
 def readRecordsFromFile(filepath):
     file = open(filepath, 'r')
     records = []
@@ -46,5 +41,6 @@ def cls():
 def isNested(records):
     return any(isinstance(item, list) for item in records)
 
+#WA - Formats the column names to convert to a more readable state, e.g. first_name > First Name
 def formatColName(column):
     return column.replace('_', ' ').title()
